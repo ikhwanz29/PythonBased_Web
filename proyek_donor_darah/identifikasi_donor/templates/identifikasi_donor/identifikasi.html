@@ -1,0 +1,91 @@
+{% extends 'identifikasi_donor/base.html' %} {% block content %}
+<section class="content-section">
+  <div class="container">
+      <h2 class="section-title">Identifikasi Kelayakan Donor Darah</h2>
+      <div class="form-container">
+          <div class="image-column left">
+              <img src="/static/img/left.png" alt="Ilustrasi Donor Darah" style="margin-left: -13px;">
+          </div>
+          <form method="post" class="donor-form" id="donorForm">
+              {% csrf_token %}
+              {% for field in form %}
+                  <div class="form-group">
+                      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                      {{ field }}
+                  </div>
+              {% endfor %}
+              <button type="submit" class="btn-submit">PERIKSA KELAYAKAN</button>
+          </form>
+          <div class="image-column right">
+              <img src="/static/img/right.png" alt="Ilustrasi Donor Darah">
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- SweetAlert2 dan FontAwesome -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
+<script>
+  document.getElementById('donorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    Swal.fire({
+        title: 'Memproses...',
+        text: 'Mohon tunggu sebentar',
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        willOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    setTimeout(() => {
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            let icon, title, text;
+            if (data.prediksi === 'Layak') {
+                icon = 'success';
+                title = 'Selamat!';
+                text = 'Anda layak untuk mendonorkan darah.';
+            } else {
+                icon = 'warning';
+                title = 'Perhatian';
+                text = 'Maaf, Anda tidak layak mendonorkan darah saat ini.';
+            }
+
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: icon,
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#D32F2F',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
+        })
+        .catch(error => {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat memproses data.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#D32F2F'
+            });
+        });
+    }, 5000); // Menunggu 5 detik sebelum menampilkan hasil
+});
+</script>
+{% endblock %}
