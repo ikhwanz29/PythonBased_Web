@@ -1,254 +1,427 @@
 /* Global styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    scroll-behavior: smooth;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+main {
+  padding-top: 0px; /* Sesuaikan nilai ini dengan tinggi navbar Anda */
 }
 
 /* Header styles */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-nav ul {
-    display: flex;
-    justify-content: flex-end;
-    list-style-type: none;
-    padding: 1rem 2rem;
-    margin: 0;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
 }
 
-nav ul li {
-    margin-left: 2rem;
+.logo {
+  padding: 0.5rem 0;
 }
 
-nav ul li a {
-    color: #D32F2F;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+.logo a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-nav ul li a:hover {
-    color: #B71C1C;
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #b71c1c;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  align-items: center;
 }
 
 /* Hero section styles */
 .hero {
-    height: 100vh;
-    background-image: url('/static/img/bg7.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 10%;
-    color: white;
-    position: relative;
+  height: 100vh;
+  background-image: url("/static/img/bg7.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10%;
+  color: white;
+  position: relative;
 }
 
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(211, 47, 47, 0.7);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(211, 47, 47, 0.7);
 }
 
-.hero h1, .hero h2 {
-    position: relative;
-    z-index: 1;
+.hero h1,
+.hero h2 {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .hero h2 {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
 }
 
-
 .cta-button {
-    background-color: #FFFFFF;
-    color: #D32F2F;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    position: relative;
-    z-index: 1;
+  background-color: #ffffff;
+  color: #d32f2f;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-button:hover {
-    background-color: #B71C1C;
-    color: #FFFFFF;
-    border-style: solid;
-    border-color: #FFFFFF;
+  background-color: #b71c1c;
+  color: #ffffff;
+  border-style: solid;
+  border-color: #ffffff;
 }
 
 /* Tambahkan atau ubah style berikut */
 
 .content-section {
-    padding: 4rem 0;
-    background-color: #f8f9fa;
+  padding: 4rem 0;
+  background-color: #f8f9fa;
 }
 
 .section-title {
-    color: #D32F2F;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-weight: bold;
+  color: #d32f2f;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 .form-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .image-column {
-    flex: 1;
-    max-width: 25%;
+  flex: 1;
+  max-width: 25%;
 }
 
 .image-column img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .image-column img {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .image-column img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .donor-form {
-    flex: 2;
-    max-width: 50%;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+  flex: 2;
+  max-width: 50%;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .donor-form:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 900;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 900;
 }
 
 .form-group input {
-    width: 95.7%;
-    padding: 0.75rem;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
+  width: 95.7%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus {
-    border-color: #D32F2F;
-    box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
-    outline: none;
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
+  outline: none;
 }
 
 .btn-submit {
-    background-color: #D32F2F;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: block;
-    width: 100%;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
+  background-color: #d32f2f;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: block;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .btn-submit:hover {
-    background-color: #B71C1C;
-    transform: translateY(-2px);
+  background-color: #b71c1c;
+  transform: translateY(-2px);
 }
 
 /* Animasi loading */
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .swal2-icon {
-    animation: pulse 1.5s infinite;
+  animation: pulse 1.5s infinite;
 }
 
 /* Efek hover pada form */
 .form-group input:hover {
-    box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
+  box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
 }
 
 /* Efek transisi pada submit button */
 .btn-submit {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-submit:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.tentang {
+  padding: 4rem 2rem;
+  background-color: #f4f4f9;
+}
+
+.tentang-title {
+  font-family: "Georgia", serif;
+  color: #222;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.tentang-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.tentang-text {
+  flex: 1;
+  margin-right: 40px;
+  text-align: justify;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+.tentang-text p {
+  line-height: 1.6;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.tentang-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tentang-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-    .hero h2 {
-        font-size: 2.5rem;
-    }
-    .content-section {
-        padding: 2rem 5%;
-    }
-    .form-container {
-        padding: 0 1rem;
-        flex-direction: column;
-    }
-    .image-column {
-        display: none;
-    }
-    .donor-form {
-        max-width: 100%;
-        padding: 1.5rem;
-    }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  .content-section {
+    padding: 4rem 5%;
+  }
+  .form-container {
+    padding: 0 1rem;
+    flex-direction: column;
+  }
+  .image-column {
+    display: none;
+  }
+  .donor-form {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  .donor-form input {
+    max-width: 90%;
+  }
+  .tentang {
+    padding: 5rem 0;
+  }
+  .tentang-title {
+    margin-bottom: 1rem;
+  }
+  .tentang-container {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .tentang-text {
+    margin-right: 0;
+  }
+
+  .tentang-image {
+    margin-top: 20px;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: auto;
+    margin-right: 0;
+  }
+
+  .logo a {
+    font-size: 0.8rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem; /* Konsisten dengan style di atas */
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin-left: 20px;
+  }
 }

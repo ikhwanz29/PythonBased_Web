@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Blood Donor Identification{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="shortcut icon" href="/static/img/icon2.png" type="image/x-icon">
@@ -12,15 +13,17 @@
 <body>
     <header>
         <nav>
-            <ul style="display: flex; justify-content: space-between;">
-            <li class="logo" style="flex: 1;">
-                <a href="{% url 'beranda' %}" style="text-align: left; display: block;">WEBSITE CERDAS BERBASIS AI UNTUK IDENTIFIKASI DONOR DARAH</a>
-            </li>
-            <li><a href="{% url 'beranda' %}">BERANDA</a></li>
-            <li><a href="{% url 'tentang' %}">TENTANG</a></li>
-            <li><a href="{% url 'identifikasi' %}">LAYANAN</a></li>
-            <!-- <li><a href="#">LAINNYA</a></li> -->
-        </ul>
+            <div class="logo">
+                <a href="{% url 'beranda' %}">WEBSITE CERDAS BERBASIS AI UNTUK IDENTIFIKASI DONOR DARAH</a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'beranda' %}" {% if request.resolver_match.url_name == 'beranda' %}class="active"{% endif %}>BERANDA</a></li>
+                <li><a href="{% url 'tentang' %}" {% if request.resolver_match.url_name == 'tentang' %}class="active"{% endif %}>TENTANG</a></li>
+                <li><a href="{% url 'identifikasi' %}" {% if request.resolver_match.url_name == 'identifikasi' %}class="active"{% endif %}>LAYANAN</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -32,7 +35,7 @@
     <footer>
         <p>&copy; 2024 Palang Merah Indonesia Kota Kendari. Hak Cipta Dilindungi.</p>
     </footer> -->
-
+    <script src="/static/js/nav.js"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
