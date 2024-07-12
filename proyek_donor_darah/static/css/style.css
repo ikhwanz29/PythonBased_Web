@@ -38,6 +38,10 @@ nav {
   font-weight: bold;
   font-size: 1rem;
 }
+.logo a:hover,
+.logo a.active {
+  color: #b71c1c;
+}
 
 .nav-links {
   display: flex;
@@ -288,7 +292,7 @@ nav {
 
 .tentang-text {
   flex: 1;
-  margin-right: 40px;
+  margin-left: 40px;
   text-align: justify;
   font-family: "Arial", sans-serif;
   color: #333;
@@ -351,7 +355,7 @@ nav {
   }
 
   .tentang-text {
-    margin-right: 0;
+    margin-left: 0;
   }
 
   .tentang-image {
