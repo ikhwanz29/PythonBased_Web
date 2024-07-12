@@ -33,14 +33,10 @@ nav {
 }
 
 .logo a {
-  color: #333;
+  color: #b71c1c;
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
-}
-.logo a:hover,
-.logo a.active {
-  color: #b71c1c;
 }
 
 .nav-links {
